@@ -13,7 +13,8 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #f8f8f8;
+  /*background-color: #f8f8f8;*/
+  border-top: solid 1px lightgrey;
 }
 
 body > .container {
@@ -27,3 +28,15 @@ body > .container {
   padding: 1%;
 }
 
+
+.objects button {
+  margin: 2%;
+}
+
+.reset {
+      display:block; /* change this from inline-block */
+    /*width:20%;  setting the width */
+    margin:0 auto; /* this will center  it */
+    position:relative;
+    /*padding: auto 20%;*/
+}

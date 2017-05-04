@@ -27,8 +27,40 @@ var nodes = [
 		"id": 4,
 		"parentId": 2,
 		"text": "Look at the trees.",
-		"message":"The bark looks strange.",
-		"level": 2,
+		"message":"The bark looks a strange blue-ish color.",
+		"level": 3,
+		"children": null
+	},
+	{
+		"id": 5,
+		"parentId": 2,
+		"text": "Walk through the trees.",
+		"message":"The forest is eerily quiet.",
+		"level": 3,
+		"children": null
+	},
+	{
+		"id": 6,
+		"parentId": 4,
+		"text": "Touch the bark.",
+		"message":"A slimy green liquid rushes to meet your skin.",
+		"level": 4,
+		"children": null
+	},
+	{
+		"id": 7,
+		"parentId": 4,
+		"text": "Smell the bark.",
+		"message":"A foul and nauseating smell comes through your nose as you fall hard to the ground asleep.",
+		"level": 4,
+		"children": null
+	},
+	{
+		"id": 8,
+		"parentId": 4,
+		"text": "Step away from the tree.",
+		"message":"The forest is eerily quiet.",
+		"level": 4,
 		"children": null
 	},
 ];
@@ -120,25 +152,40 @@ function changeNode(childID) {
 	$(".current").append("<h2>" + nodes[childID-1].message + "</h2>");
 
 	// check if there are actions to be taken
-	if (roots[childID]) {
+	// if (roots[childID]) {
 		// output the different options
-		for (var i = roots[childID].children.length - 1; i >= 0; i--) {
-			$(".objects").append('<li onClick="changeNode(' + roots[childID].children[i].id + ')" >' + roots[childID].children[i].text + '</li>');
+		for (var i = nodes[childID-1].children.length - 1; i >= 0; i--) {
+			$(".objects").append('<button type="button" class="btn btn-default" onClick="changeNode(' + nodes[childID-1].children[i].id + ')" >' + nodes[childID-1].children[i].text + '</button>');
 		}
+	// }
+}
+
+function setupGame() {
+	$(".current").append("<h2>" + roots[0].text + "</h2>");
+	for (var i = roots[0].children.length - 1; i >= 0; i--) {
+		console.log(roots[0].children[i].id);
+		$(".objects").append('<button type="button" class="btn btn-default" onClick="changeNode(' + roots[0].children[i].id + ')" >' + roots[0].children[i].text + '</button>');
 	}
 }
+
+
+
 
 
 var map = {}, node, roots = [];
 $(document).ready(function() {
 	generateTree();
 
-	$(".current").append("<h2>" + roots[0].text + "</h2>");
-	for (var i = roots[0].children.length - 1; i >= 0; i--) {
-		console.log(roots[0].children[i].id);
-		$(".objects").append('<li onClick="changeNode(' + roots[0].children[i].id + ')" >' + roots[0].children[i].text + '</li>');
-	}
+	setupGame();
 	
+	$(".reset").click(function() {
+		console.log("reset");
+
+		$(".current").empty();
+		$(".objects").empty();
+
+		setupGame();
+	});
 });
 
 
