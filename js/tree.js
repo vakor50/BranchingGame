@@ -63,6 +63,30 @@ var nodes = [
 		"level": 4,
 		"children": null
 	},
+	{
+		"id": 8,
+		"parentId": 4,
+		"text": "Step away from the tree.",
+		"message":"You hear a growl behind you.",
+		"level": 4,
+		"children": null
+	},
+	{
+		"id": 9,
+		"parentId": 5,
+		"text": "Check if there's anything on the ground.",
+		"message":"You see leaves, dirt, and something... shiny?",
+		"level": 4,
+		"children": null
+	},
+	{
+		"id": 10,
+		"parentId": 5,
+		"text": "Start walking through the trees.",
+		"message":"Trees trees trees so many trees.",
+		"level": 4,
+		"children": null
+	},
 ];
 
 
@@ -169,12 +193,28 @@ function setupGame() {
 }
 
 
+function buildULTree(n) {
+	var ul = '<ul>';
+	var ulClose = '</ul>';
+
+	var output = ul;
+
+	for (var i = n.children.length - 1; i >= 0; i--) {
+		output += '<li>' + n.children[i].text + '</li>' + buildULTree(n.children[i]);
+	}
+
+	output += ulClose;
+
+	return output;
+}
 
 
 
 var map = {}, node, roots = [];
 $(document).ready(function() {
 	generateTree();
+
+	$(".tree").append(buildULTree(roots[0]));
 
 	setupGame();
 	
