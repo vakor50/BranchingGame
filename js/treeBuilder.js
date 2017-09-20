@@ -108,7 +108,7 @@ function build(n) {
 }
 
 var addNum = 1;
-// var entryNum = 1;
+var entryNum = 1;
 var addButtonText = '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>';
 var removeButtonText = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
 var liContentClass = 'branch';
@@ -116,38 +116,49 @@ var btnDeleteClass = 'btn btn-primary delete';
 var btnAddClass = 'btn btn-default addBranch';
 var ulClass = 'tree list-group-item';
 
+$('ul').delegate('.addBranch', 'click', function () {
+	var addID = $(this).attr('id');
+	var number = addID.substring(3, addID.length);
+	// console.log("add id :" + number);
+
+	$('#addItemModal').modal('show');
+	$('#addItemModal').data('index', number);
+	// console.log("modal index: " + $('#addItemModal').data('index'));
+
+	// var level = $(this).data('level');
+	// $('#addItemModal').data('level', level);
+});
+
+$('.save').click(function() {
+	console.log('saving...');
+	$modal = $(this).parent().parent().parent().parent();
+	// console.log($modal);
+
+	option = $('.option-name').val();
+	result = $('.effect-name').val();
+
+	// console.log("save modal index: " + $modal.data('index'));
+
+	$newBranch = $('#add' + $modal.data('index'));
+	addNum++;
+	$newBranch.before('<li class="branch" data-option="' + option + '" data-result="' + result + '">' + option + ' --> ' + result + '<button class="btn btn-primary delete">' + removeButtonText + '</button><ul class="tree list-group-item"><li class="branch"><button class="btn btn-default addBranch" id="add' + addNum + '"">' + addButtonText + '</button></li></ul></li>');
+
+	// entryNum++;
+});
+
+$('ul').delegate('.delete', 'click', function () {
+	$(this).parent().remove();
+});
+
+$('#convert').click(function () {
+	console.log($('#base .branch').first());
+	console.log($('#base .branch').first().children());
+
+	$('#base').children('li').each(function(i) { 
+		console.log($(this).attr('class'));
+	});
+});
+
 $(document).ready(function() {
-	$('ul').delegate('.addBranch', 'click', function () {
-		var addID = $(this).attr('id');
-		var number = addID.substring(3, addID.length);
-		console.log("add id :" + number);
 
-		$('#addItemModal').modal('show');
-		$('#addItemModal').data('index', number);
-		console.log("modal index: " + $('#addItemModal').data('index'));
-
-		// var level = $(this).data('level');
-		// $('#addItemModal').data('level', level);
-	});
-
-	$('.save').click(function() {
-		console.log('saving...');
-		$modal = $(this).parent().parent().parent().parent();
-		console.log($modal);
-
-		option = $('.option-name').val();
-		result = $('.effect-name').val();
-		 
-		console.log("save modal index: " + $modal.data('index'));
-
-		$newBranch = $('#add' + $modal.data('index'));
-		addNum++;
-		$newBranch.before('<li class="branch" data-option="' + option + '" data-result="' + result + '">' + option + ' --> ' + result + '<button class="btn btn-primary delete">' + removeButtonText + '</button><ul class="tree list-group-item"><li class="branch"><button class="btn btn-default addBranch" id="add' + addNum + '"">' + addButtonText + '</button></li></ul></li>');
-
-		entryNum++;
-	});
-
-	$('ul').delegate('.delete', 'click', function () {
-		$(this).parent().remove();
-	});
 });

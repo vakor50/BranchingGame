@@ -23,7 +23,7 @@
 			<nav>
 				<ul class="nav nav-pills pull-right">
 					<li role="presentation" class="active"><a href="#">Story Builder</a></li>
-					<li role="presentation"><a href="#">Play Game</a></li>
+					<li role="presentation"><a href="playgame.html">Play Game</a></li>
 					<li role="presentation"><a href="#">Contact</a></li>
 				</ul>
 			</nav>
@@ -35,7 +35,7 @@
 		<div class="row">
 			<!-- build the tree -->
 			<div class="outline">
-				<ul class="tree list-group-item" data-level="1">
+				<ul id="base" class="tree list-group-item" data-level="1">
 					<li class="branch"><button class="btn btn-default addBranch" id="add1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></li>
 				</ul>
 			</div>
@@ -48,10 +48,12 @@
 
 
 	<footer class="footer">
-
-				<!-- reset the gmae -->
-				<!-- <button class="reset btn btn-primary">Reset Game</button> -->
-
+		<!-- convert to object array-->
+		<div class="container">
+			<div class="row">
+				<button id="convert" class="btn btn-primary">Save Story</button>
+			</div>
+		</div>
 	</footer>
 
 	<div class="item-modal modal fade" tabindex="-1" role="dialog" aria-labelledby="myMediumModalLabel" id="addItemModal" data-index="0">
@@ -67,6 +69,7 @@
 					<div class="row">
 						<div class="col-md-12 col-lg-12">
 							<input type="text" class="form-control option-name" placeholder="Something happens">
+							<br>
 						</div>
 						<div class="col-md-12 col-lg-12">
 							<input type="text" class="form-control effect-name" placeholder="And the effect is ...">
@@ -75,7 +78,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="save btn btn-primary" data-dismiss="modal">Save changes</button>
+					<button type="button" class="save btn btn-primary" data-dismiss="modal">Add</button>
 				</div>
 			</div>
 		</div>

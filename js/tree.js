@@ -214,7 +214,7 @@ $(document).ready(function() {
 
 	setupGame();
 	
-	$(".reset").click(function() {
+	$("#reset").click(function() {
 		console.log("reset");
 
 		$(".current").empty();

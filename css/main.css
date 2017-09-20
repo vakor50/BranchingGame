@@ -39,7 +39,15 @@ ul.tree {
     margin: 2%;
 }
 
-.reset {
+#reset {
+    display:block; /* change this from inline-block */
+    /*width:20%;  setting the width */
+    margin:0 auto; /* this will center  it */
+    position:relative;
+    /*padding: auto 20%;*/
+}
+
+#convert {
     display:block; /* change this from inline-block */
     /*width:20%;  setting the width */
     margin:0 auto; /* this will center  it */
