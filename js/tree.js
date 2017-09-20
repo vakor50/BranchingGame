@@ -64,14 +64,6 @@ var nodes = [
 		"children": null
 	},
 	{
-		"id": 8,
-		"parentId": 4,
-		"text": "Step away from the tree.",
-		"message":"You hear a growl behind you.",
-		"level": 4,
-		"children": null
-	},
-	{
 		"id": 9,
 		"parentId": 5,
 		"text": "Check if there's anything on the ground.",
@@ -160,7 +152,9 @@ function generateTree() {
 			roots.push(node);
 		}
 	}
+	console.log("roots:");
 	console.log(roots);
+	console.log("nodes:");
 	console.log(nodes);
 }
 
@@ -184,15 +178,16 @@ function changeNode(childID) {
 	// }
 }
 
+// Append the initial mesage prompt and print the action options
 function setupGame() {
 	$(".current").append("<h2>" + roots[0].text + "</h2>");
 	for (var i = roots[0].children.length - 1; i >= 0; i--) {
-		console.log(roots[0].children[i].id);
+		console.log("id: " + roots[0].children[i].id);
 		$(".objects").append('<button type="button" class="btn btn-default" onClick="changeNode(' + roots[0].children[i].id + ')" >' + roots[0].children[i].text + '</button>');
 	}
 }
 
-
+// build an outline of the options available to choose
 function buildULTree(n) {
 	var ul = '<ul>';
 	var ulClose = '</ul>';
@@ -214,7 +209,8 @@ var map = {}, node, roots = [];
 $(document).ready(function() {
 	generateTree();
 
-	$(".tree").append(buildULTree(roots[0]));
+	// add the outline
+	// $(".tree").append(buildULTree(roots[0]));
 
 	setupGame();
 	

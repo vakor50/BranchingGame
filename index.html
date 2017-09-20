@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Branching Game</title>
+	<title>Story Builder - Branching Story</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
 	<!-- Link Swiper's CSS -->
@@ -11,24 +11,35 @@
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
 	<!-- Bootstrap core CSS -->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!-- <link href="https://fonts.googleapis.com/css?family=Catamaran:900|Montserrat|Poppins:700|Ubuntu" rel="stylesheet"> -->
 
 </head>
 <body>
-
+	<div class="container">
+		<div class="header clearfix">
+			<nav>
+				<ul class="nav nav-pills pull-right">
+					<li role="presentation" class="active"><a href="#">Story Builder</a></li>
+					<li role="presentation"><a href="#">Play Game</a></li>
+					<li role="presentation"><a href="#">Contact</a></li>
+				</ul>
+			</nav>
+			<h3 class="text-muted">Branching Story</h3>
+		</div>
+	</div>
 	
 	<div class="container">
 		<div class="row">
+			<!-- build the tree -->
 			<div class="outline">
+				<ul class="tree list-group-item" data-level="1">
+					<li class="branch"><button class="btn btn-default addBranch" id="add1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></li>
+				</ul>
 			</div>
 
-
-<!-- 			<div class="current col-lg-11 col-lg-offset-1 col-md-11 col-md-offset-1">
-			</div>
-			<div class="objects col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-12 col-xs-6">
-			</div> -->
 		</div>
 	</div>
 
@@ -37,17 +48,44 @@
 
 
 	<footer class="footer">
-	 	<div class="container">
-			<div class="row">
-				<button class="reset btn btn-primary">Reset Game</button>
-			</div>
-		</div>
+
+				<!-- reset the gmae -->
+				<!-- <button class="reset btn btn-primary">Reset Game</button> -->
+
 	</footer>
 
-
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/tree.js"></script>
+	<div class="item-modal modal fade" tabindex="-1" role="dialog" aria-labelledby="myMediumModalLabel" id="addItemModal" data-index="0">
+		<div class="modal-dialog modal-md" role="document">
+			<div class="item-modal-content modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="gridSystemModalLabel">Add Story Point</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12 col-lg-12">
+							<input type="text" class="form-control option-name" placeholder="Something happens">
+						</div>
+						<div class="col-md-12 col-lg-12">
+							<input type="text" class="form-control effect-name" placeholder="And the effect is ...">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="save btn btn-primary" data-dismiss="modal">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
+	<!-- <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
+	<!-- <script type="text/javascript" src="js/tree.js"></script> -->
 	<script type="text/javascript" src="js/treeBuilder.js"></script>
 	
 </body>
