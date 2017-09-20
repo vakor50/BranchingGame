@@ -22,8 +22,8 @@
 		<div class="header clearfix">
 			<nav>
 				<ul class="nav nav-pills pull-right">
-					<li role="presentation" class="active"><a href="#">Story Builder</a></li>
-					<li role="presentation"><a href="playgame.html">Play Game</a></li>
+					<li role="presentation" id="storybuilder" class="active"><a href="">Story Builder</a></li>
+					<li role="presentation" id="playthegame"><div class="btn">Play Game</div></li>
 					<li role="presentation"><a href="#">Contact</a></li>
 				</ul>
 			</nav>
@@ -31,21 +31,22 @@
 		</div>
 	</div>
 	
-	<div class="container">
+	<div class="container" id="content">
 		<div class="row">
 			<!-- build the tree -->
 			<div class="outline">
-				<ul id="base" class="tree list-group-item" data-level="1">
-					<li class="branch"><button class="btn btn-default addBranch" id="add1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></li>
-				</ul>
+				<li class="branch" id="firstEntry" data-entry="1" data-option="" data-result="">
+					<input type="text" class="form-control" name="firstEntry" id="firstOption" placeholder="Something happens">
+					<input type="text" class="form-control" name="firstEntry" id="firstResult" placeholder="And the effect is ...">
+
+					<ul id="base" class="tree list-group-item" data-level="2">
+						<li class="branch" data-add="0"><button class="btn btn-default addBranch" id="add1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></li>
+					</ul>
+				</li>
 			</div>
 
 		</div>
 	</div>
-
-	<div class="tree">
-	</div>
-
 
 	<footer class="footer">
 		<!-- convert to object array-->
@@ -88,7 +89,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
 	<!-- <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
-	<!-- <script type="text/javascript" src="js/tree.js"></script> -->
+	<script type="text/javascript" src="js/tree.js"></script>
 	<script type="text/javascript" src="js/treeBuilder.js"></script>
 	
 </body>

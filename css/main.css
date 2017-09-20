@@ -54,3 +54,13 @@ ul.tree {
     position:relative;
     /*padding: auto 20%;*/
 }
+
+.tree:last-child {
+    margin-bottom: 1%;
+}
+
+.delete {
+    margin-left: 2%;
+    margin-bottom: 1%;
+    /*float: right;*/
+}
