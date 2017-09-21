@@ -69,6 +69,10 @@ ul.tree {
     list-style: none;
 }
 
-#firstEntry > input {
-    margin-bottom: 1%;
+#firstEntry label {
+    margin-top: 1%;
+}
+
+#firstEntry input {
+    /*width: 50%;*/
 }

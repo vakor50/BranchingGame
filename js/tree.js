@@ -1,4 +1,5 @@
-var nodes = [
+var games = [];
+var gameOne = [
 	{
 		"id": 1,
 		"parentId": 0,
@@ -80,6 +81,10 @@ var nodes = [
 		"children": null
 	},
 ];
+
+games.push(gameOne);
+
+var nodes = games[0];
 
 
 function Node(data) {
@@ -184,7 +189,7 @@ function setupGame() {
 	$(".objects").empty();
 	$(".current").append("<h2>" + roots[0].text + "</h2>");
 	for (var i = roots[0].children.length - 1; i >= 0; i--) {
-		console.log("id: " + roots[0].children[i].id);
+		// console.log("id: " + roots[0].children[i].id);
 		$(".objects").append('<button type="button" class="btn btn-default" onClick="changeNode(' + roots[0].children[i].id + ')" >' + roots[0].children[i].text + '</button>');
 	}
 }

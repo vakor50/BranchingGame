@@ -37,14 +37,19 @@
 			<!-- build the tree -->
 			<div class="outline">
 				<li class="branch" id="firstEntry" data-entry="1" data-option="" data-result="">
-					<input type="text" class="form-control" name="firstEntry" id="firstOption" placeholder="Something happens">
-					<input type="text" class="form-control" name="firstEntry" id="firstResult" placeholder="And the effect is ...">
-
+					<div class="form-group">
+						<label for="firstEntryOption">Option:</label>
+						<input type="text" class="form-control" name="firstEntryOption" id="firstOption" placeholder="Something happens">
+						<label for="firstEntryResult">Result:</label>
+						<input type="text" class="form-control" name="firstEntryResult" id="firstResult" placeholder="And the effect is ...">
+					</div>
 					<ul id="base" class="tree list-group-item" data-level="2">
 						<li class="branch" data-add="0"><button class="btn btn-default addBranch" id="add1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></li>
 					</ul>
 				</li>
 			</div>
+
+			<div class="gameOptions"></div>
 			<div class="current col-lg-11 col-lg-offset-1 col-md-11 col-md-offset-1"></div>
 			<div class="objects col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-12 col-xs-6"></div>
 

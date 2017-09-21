@@ -44,6 +44,9 @@ $('.save').click(function() {
 	addNum++;
 	$newBranch.before('<li class="branch" data-option="' + option + '" data-result="' + result + '" data-add="' + $modal.data('index') + '" data-entry="' + entryNum + '">' + option + ' --> ' + result + '<button class="btn btn-primary delete">' + removeButtonText + '</button><ul class="tree list-group-item" data-level="' + (parseInt($newBranch.parent().data('level')) + 1) + '"><li class="branch"><button class="btn btn-default addBranch" id="add' + addNum + '"">' + addButtonText + '</button></li></ul></li>');
 	entryNum++;
+
+	$('.option-name').val('');
+	$('.effect-name').val('');
 });
 
 /* ------------------------------------------------------------------------- */ 
@@ -107,9 +110,15 @@ $('#convert').click(function () {
 		tree.push(node);
 	});
 
-	console.log(tree);
+	
+	games.push(tree);
+	console.log(games);
 });
 
+/* ------------------------------------------------------------------------- */ 
+/* | Switch modes such that you can play the game you created or another   | */
+/* | game in the system                                                    | */
+/* ------------------------------------------------------------------------- */
 $('#playthegame').click(function () {
 	$('#storybuilder').attr('class', '');
 	$(this).attr('class', 'active');
@@ -118,6 +127,24 @@ $('#playthegame').click(function () {
 	$('.outline').hide();
 	$('#convert').hide();
 
+	$('.gameOptions').show();
+	$('.current').hide();
+	$('.objects').hide();
+	$('.reset').hide();
+	$('.gameOptions').empty();
+	for (var i = 0; i < games.length; i++) {
+		$('.gameOptions').append('<div class="col-xs-6 col-lg-4 play" data-gameid="' + i + '"><h2 class="btn btn-primary">Play Game ' + i + '</h2></div>');
+	}
+});
+
+/* ------------------------------------------------------------------------- */ 
+/* | Generation the game that you have selected                            | */
+/* |                                                                       | */
+/* ------------------------------------------------------------------------- */
+$('.gameOptions').delegate('.play', 'click', function () {
+	nodes = games[$(this).data('gameid')];
+
+	$('.gameOptions').hide();
 	$('.current').show();
 	$('.objects').show();
 	$('#reset').show();
@@ -137,9 +164,12 @@ $('#playthegame').click(function () {
 
 		setupGame();
 	});
-
 });
 
+/* ------------------------------------------------------------------------- */ 
+/* | Switch back to the story builder mode                                 | */
+/* |                                                                       | */
+/* ------------------------------------------------------------------------- */
 $('#storybuilder').click(function () {
 	$('#playthegame').attr('class', '');
 	$(this).attr('class', 'active');
@@ -148,12 +178,14 @@ $('#storybuilder').click(function () {
 	$('.outline').show();
 	$('#convert').show();
 
+	$('.gameOptions').hide();
 	$('.current').hide();
 	$('.objects').hide();
 	$('#reset').hide();
 });
 
 $(document).ready(function() {
+	$('.gameOptions').hide();
 	$('.current').hide();
 	$('.objects').hide();
 	$('#reset').hide();
