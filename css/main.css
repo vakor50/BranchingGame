@@ -64,3 +64,11 @@ ul.tree {
     margin-bottom: 1%;
     /*float: right;*/
 }
+
+#firstEntry {
+    list-style: none;
+}
+
+#firstEntry > input {
+    margin-bottom: 1%;
+}

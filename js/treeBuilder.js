@@ -113,11 +113,14 @@ $('#convert').click(function () {
 $('#playthegame').click(function () {
 	$('#storybuilder').attr('class', '');
 	$(this).attr('class', 'active');
+	$('#storybuilder').children().attr('class', 'btn btn-default');
 	$(this).children().attr('class', 'btn btn-primary');
 	$('.outline').hide();
 	$('#convert').hide();
-	$('#content').append('<div class="current col-lg-11 col-lg-offset-1 col-md-11 col-md-offset-1"></div><div class="objects col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-12 col-xs-6"></div>');
-	$('footer').append('<button id="reset" class="btn btn-primary">Reset Game</button>');
+
+	$('.current').show();
+	$('.objects').show();
+	$('#reset').show();
 
 	generateTree();
 
@@ -137,6 +140,21 @@ $('#playthegame').click(function () {
 
 });
 
-$(document).ready(function() {
+$('#storybuilder').click(function () {
+	$('#playthegame').attr('class', '');
+	$(this).attr('class', 'active');
+	$('#playthegame').children().attr('class', 'btn btn-default');
+	$(this).children().attr('class', 'btn btn-primary');
+	$('.outline').show();
+	$('#convert').show();
 
+	$('.current').hide();
+	$('.objects').hide();
+	$('#reset').hide();
+});
+
+$(document).ready(function() {
+	$('.current').hide();
+	$('.objects').hide();
+	$('#reset').hide();
 });

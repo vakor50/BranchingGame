@@ -7,15 +7,15 @@ Built using JavaScript and jQuery, with data being pulled from a JSON object.
 
 
 ### TODO
-- Add styling to option button
-- maintain list for items
-- give options to use items
+- re-evaluate styling of game creation
+- allow player to choose created games to play when they go to the play game tab
+- maintain list for in-game items
+- give options to use in-game items
 	- a node might have a tag that says, "you can use this item here"
 	- must check if node has this tag, node  .hasOwnProperty('tagname');
 - once you acquire an item, it is always an action option on a node
 - build larger story
-- create a way to build a branching story using web UI
-- figure out a way for nodes to have children higher in the tree (other than unique children)
+- figure out a way for nodes to have common children
   
   
-Time spent: ~1 hours
+Time spent: ~6 hours

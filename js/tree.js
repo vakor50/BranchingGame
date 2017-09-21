@@ -180,6 +180,8 @@ function changeNode(childID) {
 
 // Append the initial mesage prompt and print the action options
 function setupGame() {
+	$(".current").empty();
+	$(".objects").empty();
 	$(".current").append("<h2>" + roots[0].text + "</h2>");
 	for (var i = roots[0].children.length - 1; i >= 0; i--) {
 		console.log("id: " + roots[0].children[i].id);
@@ -206,23 +208,23 @@ function buildULTree(n) {
 
 
 var map = {}, node, roots = [];
-$(document).ready(function() {
-	generateTree();
+// $(document).ready(function() {
+// 	generateTree();
 
-	// add the outline
-	// $(".tree").append(buildULTree(roots[0]));
+// 	// add the outline
+// 	// $(".tree").append(buildULTree(roots[0]));
 
-	setupGame();
+// 	setupGame();
 	
-	$("#reset").click(function() {
-		console.log("reset");
+// 	$("#reset").click(function() {
+// 		console.log("reset");
 
-		$(".current").empty();
-		$(".objects").empty();
+// 		$(".current").empty();
+// 		$(".objects").empty();
 
-		setupGame();
-	});
-});
+// 		setupGame();
+// 	});
+// });
 
 
 
