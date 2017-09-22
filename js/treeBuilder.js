@@ -189,4 +189,49 @@ $(document).ready(function() {
 	$('.current').hide();
 	$('.objects').hide();
 	$('#reset').hide();
+
 });
+
+function addStorage() {
+    console.log("Add storage");
+    var key = "testkey";
+    var data = "testdata";
+    var nic = "testnic";
+
+    //localStorage setItem
+    if ("localStorage" in window) {
+        console.log("Setting item " + key + " to " + data +
+                    " in localStorage");
+        localStorage.setItem(key, data, nic);
+    } else {
+        alert("no localStorage in window");
+    }
+}
+
+window.onload = function () {
+    console.log("onLoad");
+    var localhtml = "";
+    
+    addStorage();
+
+    //localStorage key and getItembr
+    for (var i = 0; i < localStorage.length; i++) {
+        localhtml += "<li>" + localStorage.key(i) + " " +
+            localStorage.getItem(localStorage.key(i)) + "</li>";
+    }
+
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+
+    while ( i-- ) {
+    	// localStorage.removeItem(keys[i]);
+        values.push( localStorage.getItem(keys[i]) );
+        
+    }
+
+    console.log(values);
+    
+    console.log(localhtml);
+    // document.getElementById('localStorageData').innerHTML = localhtml;
+};

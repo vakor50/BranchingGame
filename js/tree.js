@@ -20,7 +20,7 @@ var gameOne = [
 		"id": 3,
 		"parentId": 1,
 		"text": "Go back to sleep.",
-		"message": "You die peacefully in your sleep.",
+		"message": "You are robbed in your sleep.",
 		"level": 2,
 		"children": null
 	},
@@ -83,6 +83,10 @@ var gameOne = [
 ];
 
 games.push(gameOne);
+
+// if (localStorage.getItem("storedGames") != null) {
+	
+// }
 
 var nodes = games[0];
 
