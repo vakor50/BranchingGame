@@ -42,7 +42,7 @@ $('.save').click(function() {
 	// get the add button that was clicked
 	$newBranch = $('#add' + $modal.data('index')).parent();
 	addNum++;
-	$newBranch.before('<li class="branch" data-option="' + option + '" data-result="' + result + '" data-add="' + $modal.data('index') + '" data-entry="' + entryNum + '">' + option + ' --> ' + result + '<button class="btn btn-primary delete">' + removeButtonText + '</button><ul class="tree list-group-item" data-level="' + (parseInt($newBranch.parent().data('level')) + 1) + '"><li class="branch"><button class="btn btn-default addBranch" id="add' + addNum + '"">' + addButtonText + '</button></li></ul></li>');
+	$newBranch.before('<li class="branch" data-option="' + option + '" data-result="' + result + '" data-add="' + $modal.data('index') + '" data-entry="' + entryNum + '">' + option + ' <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> ' + result + '<button class="btn btn-primary delete">' + removeButtonText + '</button><ul class="tree list-group-item" data-level="' + (parseInt($newBranch.parent().data('level')) + 1) + '"><li class="branch"><button class="btn btn-default addBranch" id="add' + addNum + '"">' + addButtonText + '</button></li></ul></li>');
 	entryNum++;
 
 	$('.option-name').val('');
@@ -56,6 +56,8 @@ $('.save').click(function() {
 $('ul').delegate('.delete', 'click', function () {
 	$(this).parent().remove();
 });
+
+
 
 /* ------------------------------------------------------------------------- */ 
 /* | When #convert button is clicked, turn the existing tree into an       | */
@@ -113,6 +115,24 @@ $('#convert').click(function () {
 	
 	games.push(tree);
 	console.log(games);
+	alert("Your Story was Saved.");
+
+
+	localStorage["games"] = JSON.stringify(games);
+
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+
+    // console.log("values")
+    // while ( i-- ) {
+    	// localStorage.removeItem(keys[i]);
+    //     values.push( localStorage.getItem(keys[i]) );
+    //     // console.log( localStorage.getItem(keys[i]) )
+    // }
+
+    // console.log(values);
+    // console.log(JSON.parse(localStorage["game"]));
 });
 
 /* ------------------------------------------------------------------------- */ 
@@ -142,6 +162,7 @@ $('#playthegame').click(function () {
 /* |                                                                       | */
 /* ------------------------------------------------------------------------- */
 $('.gameOptions').delegate('.play', 'click', function () {
+	roots = [];
 	nodes = games[$(this).data('gameid')];
 
 	$('.gameOptions').hide();
@@ -190,48 +211,11 @@ $(document).ready(function() {
 	$('.objects').hide();
 	$('#reset').hide();
 
+	// console.log("onLoad");
+    
+    if (localStorage["games"] != null) {
+		games = JSON.parse(localStorage["games"]);
+	}
 });
 
-function addStorage() {
-    console.log("Add storage");
-    var key = "testkey";
-    var data = "testdata";
-    var nic = "testnic";
 
-    //localStorage setItem
-    if ("localStorage" in window) {
-        console.log("Setting item " + key + " to " + data +
-                    " in localStorage");
-        localStorage.setItem(key, data, nic);
-    } else {
-        alert("no localStorage in window");
-    }
-}
-
-window.onload = function () {
-    console.log("onLoad");
-    var localhtml = "";
-    
-    addStorage();
-
-    //localStorage key and getItembr
-    for (var i = 0; i < localStorage.length; i++) {
-        localhtml += "<li>" + localStorage.key(i) + " " +
-            localStorage.getItem(localStorage.key(i)) + "</li>";
-    }
-
-    var values = [],
-        keys = Object.keys(localStorage),
-        i = keys.length;
-
-    while ( i-- ) {
-    	// localStorage.removeItem(keys[i]);
-        values.push( localStorage.getItem(keys[i]) );
-        
-    }
-
-    console.log(values);
-    
-    console.log(localhtml);
-    // document.getElementById('localStorageData').innerHTML = localhtml;
-};

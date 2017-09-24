@@ -76,3 +76,13 @@ ul.tree {
 #firstEntry input {
     /*width: 50%;*/
 }
+
+#goHome a {
+    color: black;
+    text-decoration: none;
+}
+
+#goHome a:hover {
+    text-decoration: none;
+    color: black;
+}

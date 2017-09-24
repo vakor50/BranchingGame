@@ -84,9 +84,7 @@ var gameOne = [
 
 games.push(gameOne);
 
-// if (localStorage.getItem("storedGames") != null) {
-	
-// }
+
 
 var nodes = games[0];
 
@@ -161,10 +159,10 @@ function generateTree() {
 			roots.push(node);
 		}
 	}
-	console.log("roots:");
-	console.log(roots);
-	console.log("nodes:");
-	console.log(nodes);
+	// console.log("roots:");
+	// console.log(roots);
+	// console.log("nodes:");
+	// console.log(nodes);
 }
 
 // when you select an action option, change the message and the next action options
@@ -175,15 +173,16 @@ function changeNode(childID) {
 	$(".current").empty();
 	$(".objects").empty();
 	
+	var found = $.grep(nodes, function(e){ return e.id == childID; });
+	var result = found[0];
 	// display the slected action's effect
-	$(".current").append("<h2>" + nodes[childID-1].message + "</h2>");
+	$(".current").append("<h2>" + result.message + "</h2>");
 
-	// check if there are actions to be taken
-	// if (roots[childID]) {
-		// output the different options
-		for (var i = nodes[childID-1].children.length - 1; i >= 0; i--) {
-			$(".objects").append('<button type="button" class="btn btn-default" onClick="changeNode(' + nodes[childID-1].children[i].id + ')" >' + nodes[childID-1].children[i].text + '</button>');
-		}
+	// output the different options
+	// console.log(result);
+	for (var i = result.children.length - 1; i >= 0; i--) {
+		$(".objects").append('<button type="button" class="btn btn-default" onClick="changeNode(' + result.children[i].id + ')" >' + result.children[i].text + '</button>');
+	}
 	// }
 }
 

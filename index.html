@@ -8,7 +8,7 @@
 	<!-- Link Swiper's CSS -->
 	<!-- <link rel="stylesheet" type="text/css" href="css/swiper.min.css"> -->
 	
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"> -->
 
 	<!-- Bootstrap core CSS -->
 	<!-- Latest compiled and minified CSS -->
@@ -24,7 +24,7 @@
 				<ul class="nav nav-pills pull-right">
 					<li role="presentation" id="storybuilder" class="active"><div class="btn btn-primary">Story Builder</div></li>
 					<li role="presentation" id="playthegame"><div class="btn btn-default">Play Game</div></li>
-					<li role="presentation"><a href="#">Contact</a></li>
+					<li role="goHome" id="goHome"><div class="btn btn-default"><a href="#">Home</a></div></li>
 				</ul>
 			</nav>
 			<h3 class="text-muted">Branching Story</h3>
@@ -38,10 +38,10 @@
 			<div class="outline">
 				<li class="branch" id="firstEntry" data-entry="1" data-option="" data-result="">
 					<div class="form-group">
-						<label for="firstEntryOption">Option:</label>
+						<label for="firstEntryOption">Start:</label>
 						<input type="text" class="form-control" name="firstEntryOption" id="firstOption" placeholder="Something happens">
-						<label for="firstEntryResult">Result:</label>
-						<input type="text" class="form-control" name="firstEntryResult" id="firstResult" placeholder="And the effect is ...">
+						<!-- <label for="firstEntryResult">Result:</label> -->
+						<!-- <input type="text" class="form-control" name="firstEntryResult" id="firstResult" placeholder="And the effect is ..."> -->
 					</div>
 					<ul id="base" class="tree list-group-item" data-level="2">
 						<li class="branch" data-add="0"><button class="btn btn-default addBranch" id="add1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></li>

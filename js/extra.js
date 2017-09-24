@@ -3,6 +3,23 @@ $(".delete").click(function() {
 	$(this).parent().remove();
 });
 
+function addStorage() {
+    console.log("Add storage");
+    var key = "testkey2";
+    var data = "testdata2";
+    var nic = "testnic";
+
+    //localStorage setItem
+    if ("localStorage" in window) {
+        console.log("Setting item " + key + " to " + data +
+                    " in localStorage");
+        localStorage.setItem(key, data, nic);
+    } else {
+        alert("no localStorage in window");
+    }
+}
+
+
 function newTree(n) {
 	console.log("newTree( " + n + " )");
 	$('.entries-' + n).append('<li><button type="button" class="btn btn-default" id="addItemIn' + n + '" data-toggle="modal" data-target=".item-modal">Add item</button></li>');

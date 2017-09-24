@@ -10,16 +10,19 @@ Once you've created a tree, you can scroll to the bottom of the page and click "
 Once the story is saved, you can click the "Play Game" to load the menu for choosing a game to play. There is a game loading with some dummy text.
 
 
-### TODO
-- Add local storage or session storage of game trees
+### To Do
 - re-evaluate styling of game creation
-- maintain list for in-game items
-- give options to use in-game items
-	- a node might have a tag that says, "you can use this item here"
-	- must check if node has this tag, node  .hasOwnProperty('tagname');
-- once you acquire an item, it is always an action option on a node
+- Future Game Functionality
+    - maintain list for in-game items
+    - give options to use in-game items
+	    - a node might have a tag that says, "you can use this item here"
+	    - must check if node has this tag, node  .hasOwnProperty('tagname');
+        - once you acquire an item, it is always an action option on a node
 - build larger sample story
 - figure out a way for nodes to have common children
   
-  
-Time spent: ~6 hours
+### Completed
+Starting to track these part way through
+- local storage of the games that have been created
+
+Time spent: ~8 hours
